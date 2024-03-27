@@ -14,9 +14,9 @@ export class TripsPage implements OnInit {
 
   listType = 'grid'
   appService = inject(AppService)
+  
   router = inject(Router)
   loadingTrip = false
-
   step = 1
 
   constructor() { }
