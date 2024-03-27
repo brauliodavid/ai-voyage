@@ -1,0 +1,7 @@
+{
+  "name": "Trip Tide",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

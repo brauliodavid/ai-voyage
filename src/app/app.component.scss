@@ -1,0 +1,298 @@
+ion-menu ion-content {
+  --background: var(--ion-item-background, var(--ion-background-color, #fff));
+}
+
+ion-menu.md ion-content {
+  --padding-start: 8px;
+  --padding-end: 8px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+}
+
+ion-menu.md ion-list {
+  padding: 20px 0;
+}
+
+ion-menu.md ion-note {
+  margin-bottom: 30px;
+}
+
+ion-menu.md ion-list-header,
+ion-menu.md ion-note {
+  padding-left: 10px;
+}
+
+ion-menu.md ion-list#inbox-list {
+  border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
+}
+
+ion-menu.md ion-list#inbox-list ion-list-header {
+  font-size: 22px;
+  font-weight: 600;
+
+  min-height: 20px;
+}
+
+ion-menu.md ion-list#labels-list ion-list-header {
+  font-size: 16px;
+
+  margin-bottom: 18px;
+
+  color: #757575;
+
+  min-height: 26px;
+}
+
+ion-menu.md ion-item {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  border-radius: 4px;
+}
+
+ion-menu.md ion-item.selected {
+  --background: rgba(var(--ion-color-primary-rgb), 0.14);
+}
+
+ion-menu.md ion-item.selected ion-icon {
+  color: var(--ion-color-primary);
+}
+
+ion-menu.md ion-item ion-icon {
+  color: #616e7e;
+}
+
+ion-menu.md ion-item ion-label {
+  font-weight: 500;
+}
+
+ion-menu.ios ion-content {
+  --padding-bottom: 20px;
+}
+
+ion-menu.ios ion-list {
+  padding: 20px 0 0 0;
+}
+
+ion-menu.ios ion-note {
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+
+ion-menu.ios ion-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 50px;
+}
+
+ion-menu.ios ion-item.selected ion-icon {
+  color: var(--ion-color-primary);
+}
+
+ion-menu.ios ion-item ion-icon {
+  font-size: 24px;
+  color: #73849a;
+}
+
+ion-menu.ios ion-list#labels-list ion-list-header {
+  margin-bottom: 8px;
+}
+
+ion-menu.ios ion-list-header,
+ion-menu.ios ion-note {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+ion-menu.ios ion-note {
+  margin-bottom: 8px;
+}
+
+ion-note {
+  display: inline-block;
+  font-size: 16px;
+
+  color: var(--ion-color-medium-shade);
+}
+
+ion-item.selected {
+  --color: var(--ion-color-primary);
+}
+
+ion-router-outlet {
+  margin-top: 70px;
+}
+
+ion-toolbar.toolbar-top {
+  // --padding-top: 20px;
+  // --min-height: 80px;
+  padding-top: 15px;
+}
+
+.bottom-sidebar {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 90%;
+}
+
+.sidebar-account {
+  display: flex;
+  align-items: center;
+}
+
+.side-avatar img {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+}
+
+.account-name {
+  font-weight: 700;
+}
+
+.account-email {
+  font-size: .8rem;
+}
+
+.side-account-info {
+  padding-left: 10px;
+}
+
+.plans-list {
+  display: flex;
+  align-items: center;
+}
+
+.plan-btn {
+  margin-left: auto;
+}
+
+.pricing-box {
+  margin: 5px;
+}
+
+.pricing-box-bottom {
+  text-align: center;
+}
+
+ion-card-title small {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+ion-item.pricing-item {
+  --background: transparent;
+}
+
+ion-item.pricing-item ion-icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.item-des {
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.link-plan {
+  text-decoration: none;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+}
+
+.link-plan-2 {
+  text-decoration: none;
+  font-size: 0.8rem;
+  display: block;
+}
+
+.link-plan:hover {
+  text-decoration: underline;
+}
+
+.pricing-toggle-section {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.pricing-toggle {
+  max-width: 300px;
+}
+
+.pricing-box-premium .link-plan {
+  color: #fff;
+}
+
+.pricing-box-premium .divider {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.pricing-box-premium ion-item.pricing-item ion-label {
+  color: #fff;
+}
+
+.user-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pay-options ion-item {
+  border: 2px solid var(--ion-color-light);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.pay-options ion-item.active {
+  border-color: var(--ion-color-primary);
+}
+
+.payment-method {
+  border: 2px solid transparent;
+  border-radius: 20px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ion-color-light);
+  cursor: pointer;
+}
+
+.payment-method ion-text {
+  display: block;
+  margin-top: 10px;
+}
+
+.payment-method.active {
+  border-color: var(--ion-color-primary);
+}
+
+.loading-modal-success-icon {
+  font-size: 3rem;
+  margin: 5px 0;
+}
+
+.noti-counter {
+  position: absolute;
+  top: 0;
+  right: 1px;
+  background-color: var(--ion-color-danger);
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

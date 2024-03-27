@@ -1,0 +1,98 @@
+.trips-list {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.filters-button {
+    padding-right: 20px;
+}
+
+.form-section-title {
+    margin-bottom: 1rem;
+}
+
+.input-date {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.counter__section {
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-visibility {
+    width: 200px;
+}
+
+.toolbar-container {
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.grid-listing-toggle-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.grid-listing-toggle {
+    max-width: 200px;
+}
+
+/// MODAL
+.fancy-modal-container {
+    display: flex;
+    height: 100%;
+}
+
+.fancy-modal-container > div {
+    width: 50%;
+}
+
+.col-img {
+    padding: 0 !important;
+    position: relative;
+}
+
+.img-modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.bottom-form {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 20px;
+}
+
+.bottom-form-right {
+    margin-left: auto;
+    text-align: right;
+    justify-content: end;
+}
+
+@media (min-width: 1000px) {
+    ion-modal.fancy-modal {
+        // --height: 320px;
+        --min-width: 1000px;
+        --width: fit-content;
+    }
+}
+

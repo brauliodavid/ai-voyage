@@ -1,0 +1,247 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Трек к базовому лагерю Эвереста</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-header collapse="condense">
+    <ion-toolbar class="toolbar-trips">
+      <ion-title size="large">
+        <div class="page-title editable" contenteditable>Трек к базовому лагерю Эвереста</div>
+      </ion-title>
+
+      <ion-buttons slot="end" class="filters-button hidden-mobile">
+        <ion-button fill="outline" color="medium"><ion-icon name="options-outline"></ion-icon><span>&nbsp;Настройки</span></ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div class="days">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" sizeMd="5" sizeXl="3">
+          <ion-list>
+            <ion-item-divider color="light">
+              <ion-label>маршрут</ion-label><ion-button fill="clear" size="small"><ion-icon name="add-outline"></ion-icon>&nbsp;добавить день</ion-button>
+            </ion-item-divider>
+            <ion-item>
+              <ion-avatar aria-hidden="true" slot="start">
+                <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/11/hero2-bg.jpg" />
+              </ion-avatar>
+              <ion-label>
+                <h2>Поездка в Наяпул и поход в Уллери</h2>
+                <p>14 марта</p>
+              </ion-label>
+            </ion-item>
+            <ion-item color="light" class="active-day">
+              <ion-avatar aria-hidden="true" slot="start">
+                <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/1-1-900x490.jpg" />
+              </ion-avatar>
+              <ion-label>
+                <h2>Поход в Горепани</h2>
+                <p>15 марта</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-avatar aria-hidden="true" slot="start">
+                <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/10-900x490.jpg" />
+              </ion-avatar>
+              <ion-label>
+                <h2>Возвращение в Горепани и переход в Тадапани</h2>
+                <p>16 марта</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-avatar aria-hidden="true" slot="start">
+                <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/6-1-900x490.jpg" />
+              </ion-avatar>
+              <ion-label>
+                <h2>Тадапани — Чомронг</h2>
+                <p>17 марта</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-avatar aria-hidden="true" slot="start">
+                <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/6-1-900x490.jpg" />
+              </ion-avatar>
+              <ion-label>
+                <h2>Город озер, приключений и спокойствия</h2>
+                <p>18 марта</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-avatar aria-hidden="true" slot="start">
+                <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/10-900x490.jpg" />
+              </ion-avatar>
+              <ion-label>
+                <h2>Поездка в Наяпул и поход в Уллери</h2>
+                <p>19 марта</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-avatar aria-hidden="true" slot="start">
+                <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/1-1-900x490.jpg" />
+              </ion-avatar>
+              <ion-label>
+                <h2>Поход в Горепани</h2>
+                <p>20 марта</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-avatar aria-hidden="true" slot="start">
+                <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/11/hero2-bg.jpg" />
+              </ion-avatar>
+              <ion-label>
+                <h2>Ранний переход на холм Пун</h2>
+                <p>21 марта</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+          <div class="gap"></div>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="7" sizeXl="6">
+          <ion-list>
+            <ion-item-divider color="light">
+              <ion-label>описание</ion-label>
+            </ion-item-divider>
+          </ion-list>
+          <div class="day ion-padding">
+            <ion-input mode="md" label="Название" labelPlacement="floating" fill="outline" type="search" value="Поход в Горепани" clearInput size="large"></ion-input>
+            <div class="gap"></div>
+            <ion-textarea mode="md" label="Описание" labelPlacement="floating" fill="outline" rows="10" [counter]="true"
+            maxlength="500" value="В то время как ранние путешествия, как правило, были более медленными, более опасными и в них в большей степени преобладали торговля и миграция, культурный и технологический прогресс на протяжении многих лет, как правило, означал, что путешествия стали проще и доступнее. Этой тенденции способствовало развитие технологий в таких разнообразных областях, как конные перевозки и скоростные поезда."></ion-textarea>
+          </div>
+
+          <ion-list>
+            <ion-item-divider color="light">
+              <ion-label>Изображений</ion-label>
+            </ion-item-divider>
+          </ion-list>
+
+          <div class="gallery ion-padding">
+            <ion-row>
+              <ion-col>
+                <img src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/6-1-900x490.jpg"/>
+              </ion-col>
+              <ion-col>
+                <img src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/11/hero2-bg.jpg"/>
+              </ion-col>
+              <ion-col>
+                <img src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/1-1-900x490.jpg"/>
+              </ion-col>
+              <ion-col>
+                <img src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/10-900x490.jpg"/>
+              </ion-col>
+            </ion-row>
+            <div class="text-right">
+              <ion-button size="small" fill="outline"><ion-icon name="add-outline"></ion-icon>&nbsp;добавить</ion-button>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6" sizeXl="3">
+          <ion-list>
+            <ion-item-divider color="light">
+              <ion-label>Данные</ion-label>
+            </ion-item-divider>
+          </ion-list>
+
+          <div>
+
+            <ion-list [inset]="true">
+              <ion-item color="light">
+                <ion-label>Дата</ion-label>
+                <ion-datetime-button datetime="datetime"></ion-datetime-button>
+              </ion-item>
+              <ion-item color="light" lines="none">
+                <ion-label>
+                  Ссылка<br />
+                  <ion-note class="ion-text-wrap"><a href="">https://triptide.com/trip</a></ion-note>
+                </ion-label>
+              </ion-item>
+              <ion-item color="light">
+                <ion-segment value="default">
+                  <ion-segment-button value="default">
+                    <ion-label>Общественный</ion-label>
+                  </ion-segment-button>
+                  <ion-segment-button value="segment">
+                    <ion-label>Личный</ion-label>
+                  </ion-segment-button>
+                </ion-segment>
+              </ion-item>
+              <ion-item color="light">
+                <ion-label>
+                  Таги<br />
+                  <ion-chip>Семья</ion-chip><ion-chip>Друзья</ion-chip>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+
+            <ion-list [inset]="true">
+              <ion-item color="light">
+                <ion-label>
+                  Часы ходьбы<br />
+                  <ion-note class="ion-text-wrap">5-8 часов</ion-note>
+                </ion-label>
+              </ion-item>
+              <ion-item color="light">
+                <ion-label>
+                  Минимальный возраст<br />
+                  <ion-note class="ion-text-wrap">12</ion-note>
+                </ion-label>
+              </ion-item>
+              <ion-item color="light">
+                <ion-label>
+                  Максимальная высота<br />
+                  <ion-note class="ion-text-wrap">5,416 метров</ion-note>
+                </ion-label>
+              </ion-item>
+              <ion-item color="light">
+                <ion-label>
+                  Язык<br />
+                  <ion-note class="ion-text-wrap">английский, испанский</ion-note>
+                </ion-label>
+              </ion-item>
+              <ion-item color="light">
+                <ion-label>
+                  Wi-Fi<br />
+                  <ion-note>Доступный</ion-note>
+                </ion-label>
+              </ion-item>
+              <ion-item color="light">
+                <ion-toggle>
+                  <ion-label>Питание</ion-label>
+                  <ion-note color="medium">Все питание во время поездки</ion-note>
+                </ion-toggle>
+              </ion-item>
+            </ion-list>
+            <div class="text-right ion-padding">
+              <ion-button size="small" fill="outline"><ion-icon name="add-outline"></ion-icon>&nbsp;добавить</ion-button>
+            </div>
+            
+
+            <!-- <ion-datetime-button datetime="datetime"></ion-datetime-button> -->
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime id="datetime" presentation="date"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </div>
+  
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,290 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Мои маршруты</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-header collapse="condense">
+    <ion-toolbar class="toolbar-trips">
+      <ion-title size="large">
+        <div class="page-title">Мои маршруты&nbsp;&nbsp;<ion-button id="open-modal" class="hidden-mobile"><ion-icon name="add-outline"></ion-icon>&nbsp;Новый путь</ion-button></div>
+      </ion-title>
+
+      <ion-buttons slot="end" class="filters-button">
+        <ion-button fill="clear" color="medium"><ion-icon name="filter-outline"></ion-icon><span class="hidden-mobile">&nbsp;Фильтры</span></ion-button>
+      </ion-buttons>
+      
+      <!-- <ion-buttons slot="end">
+        <ion-button (click)="setListType('list')" color="medium"><ion-icon name="list-outline"></ion-icon></ion-button>
+        <ion-button (click)="setListType('grid')"><ion-icon name="grid-outline"></ion-icon></ion-button>
+      </ion-buttons> -->
+
+      <ion-segment value="grid" slot="end" class="hidden-mobile">
+        <ion-segment-button value="list">
+          <ion-label><ion-icon name="list-outline"></ion-icon></ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="grid">
+          <ion-label><ion-icon name="grid-outline"></ion-icon></ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div *ngIf="listType === 'list'" class="trips-list">
+    <!-- <ion-list>
+      <ion-item>
+        <ion-avatar aria-hidden="true" slot="start">
+          <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/11/hero2-bg.jpg" />
+        </ion-avatar>
+        <ion-label>
+          <h1>Исследуйте красоту Филиппин</h1>
+          <p>7 Дни - Англия, Мальдивы, Филиппины</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar aria-hidden="true" slot="start">
+          <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/1-1-900x490.jpg" />
+        </ion-avatar>
+        <ion-label>
+          <h1>Трек к базовому лагерю Эвереста</h1>
+          <p>2 Дни - Англия, Мальдивы, Филиппины</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar aria-hidden="true" slot="start">
+          <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/10-900x490.jpg" />
+        </ion-avatar>
+        <ion-label>
+          <h1>Исследуйте красоту Филиппин</h1>
+          <p>5 Дни - Англия, Мальдивы, Филиппины</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar aria-hidden="true" slot="start">
+          <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/6-1-900x490.jpg" />
+        </ion-avatar>
+        <ion-label>
+          <h1>Откройте для себя невероятную Индию</h1>
+          <p>7 Дни - Англия, Мальдивы, Филиппины</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar aria-hidden="true" slot="start">
+          <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/6-1-900x490.jpg" />
+        </ion-avatar>
+        <ion-label>
+          <h1>Откройте для себя невероятную Индию</h1>
+          <p>7 Дни - Англия, Мальдивы, Филиппины</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar aria-hidden="true" slot="start">
+          <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/10-900x490.jpg" />
+        </ion-avatar>
+        <ion-label>
+          <h1>Исследуйте красоту Филиппин</h1>
+          <p>5 Дни - Англия, Мальдивы, Филиппины</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar aria-hidden="true" slot="start">
+          <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/1-1-900x490.jpg" />
+        </ion-avatar>
+        <ion-label>
+          <h1>Трек к базовому лагерю Эвереста</h1>
+          <p>2 Дни - Англия, Мальдивы, Филиппины</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar aria-hidden="true" slot="start">
+          <img alt="" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/11/hero2-bg.jpg" />
+        </ion-avatar>
+        <ion-label>
+          <h1>Исследуйте красоту Филиппин</h1>
+          <p>7 Дни - Англия, Мальдивы, Филиппины</p>
+        </ion-label>
+      </ion-item>
+    </ion-list> -->
+  </div>
+
+  <div class="grid-listing-toggle-container">
+    <ion-segment value="grid" class="hidden-desktop grid-listing-toggle">
+      <ion-segment-button value="list">
+        <ion-label><ion-icon name="list-outline"></ion-icon></ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="grid">
+        <ion-label><ion-icon name="grid-outline"></ion-icon></ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+
+  <ion-grid *ngIf="listType === 'grid'">
+    <ion-row>
+      <ion-col size="12" sizeLg="4" sizeXl="3">
+        <ion-card routerLink="/trips/1">
+          <img alt="Silhouette of mountains" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/11/hero2-bg.jpg" />
+          <ion-card-header>
+            <ion-card-title>Исследуйте красоту Филиппин</ion-card-title>
+            <ion-card-subtitle>6 Дни</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Англия, Мальдивы, Филиппины
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="4" sizeXl="3">
+        <ion-card routerLink="/trips/1">
+          <img alt="Silhouette of mountains" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/1-1-900x490.jpg" />
+          <ion-card-header>
+            <ion-card-title>Трек к базовому лагерю Эвереста</ion-card-title>
+            <ion-card-subtitle>6 Дни</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Англия, Мальдивы, Филиппины
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="4" sizeXl="3">
+        <ion-card routerLink="/trips/1">
+          <img alt="Silhouette of mountains" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/10-900x490.jpg" />
+          <ion-card-header>
+            <ion-card-title>Исследуйте красоту Филиппин</ion-card-title>
+            <ion-card-subtitle>6 Дни</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Англия, Мальдивы, Филиппины
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="4" sizeXl="3">
+        <ion-card routerLink="/trips/1">
+          <img alt="Silhouette of mountains" src="https://wordpress.vecurosoft.com/travolo/wp-content/uploads/2023/12/6-1-900x490.jpg" />
+          <ion-card-header>
+            <ion-card-title>Откройте для себя невероятную Индию</ion-card-title>
+            <ion-card-subtitle>7 Дни</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Англия, Мальдивы, Филиппины
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-modal trigger="open-modal" class="fancy-modal">
+    <ng-template>
+        <div *ngIf="!loadingTrip" class="fancy-modal-container">
+          <div class="col-img hidden-mobile">
+            <img src="./assets/fancy-trip.avif" class="img-modal">
+          </div>
+          <div class="modal-form">
+            <ion-content class="ion-padding">
+
+              <ion-icon name="close-outline" class="close-modal" (click)="cancel()"></ion-icon>
+              <h1 class="form-title">Новый маршрут</h1>
+              <div class="gap"></div>
+      
+              <div *ngIf="step === 1" class="step-1">
+                <h4 class="form-section-title">Куда вы хотите поехать?</h4>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size="8">
+                      <ion-input mode="md" label="Город" labelPlacement="floating" fill="outline" type="search" placeholder="" clearInput></ion-input>
+                    </ion-col>
+                    <ion-col>
+                      <!-- <ion-label><small>Дата</small></ion-label> -->
+                      <div class="input-date">
+                        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+                        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+                        <ion-modal [keepContentsMounted]="true">
+                          <ng-template>
+                            <ion-datetime id="datetime" presentation="date"></ion-datetime>
+                          </ng-template>
+                        </ion-modal>
+                        <!-- <ion-icon name="calendar-outline"></ion-icon> -->
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+                <ion-button fill="outline" size="small"><ion-icon name="add-outline"></ion-icon>&nbsp;Город</ion-button>
+                <div class="gap"></div>
+              </div>
+              
+              <div *ngIf="step === 2" class="step-2">
+                <h4 class="form-section-title">Сколько человек путешествует?</h4>
+                <div class="counter__section">
+                  <ion-button (click)="decrement()">-</ion-button>
+                  <p>{{count }}</p>
+                  <ion-button (click)="increment()">+</ion-button>
+                </div>
+                <div class="gap"></div>
+              </div>
+      
+              <div *ngIf="step === 3" class="step-3">
+                <h4 class="form-section-title">Какие виды деятельности вы ищете?</h4>
+                <ion-chip color="primary">Семья</ion-chip>
+                <ion-chip color="primary">Друзья</ion-chip>
+                <ion-chip color="medium">Работа</ion-chip>
+                <ion-chip color="medium">Путешествие</ion-chip>
+                <ion-chip color="medium">Арт и культура</ion-chip>
+                <ion-chip color="medium">Музеи</ion-chip>
+                <ion-chip color="medium">Покупка</ion-chip>
+                <ion-chip color="medium">Приключение</ion-chip>
+                <div class="gap"></div>
+              </div>
+      
+              <div *ngIf="step === 4" class="step-4">
+                <h4 class="form-section-title">Видимость Ссылка</h4>
+                <ion-note>Все люди смогут увидеть маршрут по ссылке</ion-note>
+                <div class="gap"></div>
+                <ion-segment value="default" class="input-visibility">
+                  <ion-segment-button value="default">
+                    <ion-label>Общественный</ion-label>
+                  </ion-segment-button>
+                  <ion-segment-button value="segment">
+                    <ion-label>Личный</ion-label>
+                  </ion-segment-button>
+                </ion-segment>
+                <div class="gap"></div>
+              </div>
+              
+
+              <div class="bottom-form">
+                <div class="bottom-form-left">
+                  <ion-button *ngIf="step > 1" (click)="prev()" fill="clear" shape="round"><ion-icon name="arrow-back-outline"></ion-icon>&nbsp;Prev</ion-button>
+                  <ion-button *ngIf="step === 1" (click)="cancel()" fill="clear" color="danger" shape="round">Отмена</ion-button>
+                </div>
+                <div class="bottom-form-right">
+                  <ion-button *ngIf="step < 4" (click)="next()" [strong]="true" fill="outline" shape="round">Next</ion-button>
+                  <ion-button *ngIf="step === 4" (click)="confirm()" [strong]="true" fill="outline" shape="round">Создавать</ion-button>
+                </div>
+              </div>
+
+            </ion-content>
+          </div>
+        </div>
+        <div *ngIf="loadingTrip" class="loading-modal">
+          <div class="text-center">
+            <h1>Создание маршрута</h1>
+            <div><ion-text color="medium">Подождите 5 секунды</ion-text></div>
+            <ion-spinner name="dots"></ion-spinner>
+          </div>
+        </div>
+    </ng-template>
+  </ion-modal>
+  
+  
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="open()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,127 @@
+
+
+ion-split-pane {
+    --side-max-width: 270px;
+}
+
+.page-title {
+    display: flex;
+    align-items: center;
+}
+
+.page-title.editable {
+    overflow: auto;
+}
+
+.page-title:focus {
+    outline: none;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.logo > span {
+    font-weight: 300;
+}
+
+.gap {
+    height: 20px;
+}
+
+.searchbar-input-container.sc-ion-searchbar-ios {
+    height: 46px;
+}
+
+ion-searchbar {
+    max-width: 600px;
+}
+
+ion-toolbar {
+    --padding-end: 50px;
+}
+
+ion-avatar.avatar-small {
+    width: 30px;
+    height: 30px;
+}
+
+ion-avatar.avatar-medium {
+    width: 40px;
+    height: 40px;
+}
+
+ion-avatar.avatar-large {
+    width: 60px;
+    height: 60px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    max-width: 40px;
+    border-radius: 20px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.divider {
+    display: block;
+    height: 1px;
+    background-color: var(--ion-color-light);
+    margin: 10px 0;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.loading-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.loading-modal ion-spinner {
+    width: 70px;
+    height: 70px;
+}
+
+ion-item.transparent {
+    --background: transparent;
+}
+
+@media (max-width: 600px) {
+    .toolbar-top,
+    .toolbar-trips {
+        --padding-end: 10px;
+    }
+
+    .hidden-mobile {
+        display: none;
+    }
+
+    .modal-form {
+        width: 100% !important;
+    }
+}
+
+
+@media (min-width: 600px) {
+    .hidden-desktop {
+        display: none;
+    }
+}

@@ -1,0 +1,307 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-list-header><div class="logo">AI<span>voyage</span></div></ion-list-header>
+          <ion-note></ion-note>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list id="labels-list">
+          <ion-list-header>Теги&nbsp;<ion-icon name="add-outline"></ion-icon></ion-list-header>
+
+          <ion-item *ngFor="let label of labels" lines="none">
+            <ion-icon aria-hidden="true" slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
+            <ion-label>{{ label }}</ion-label>
+          </ion-item>
+        </ion-list>
+
+        <div class="bottom-sidebar">
+          <div class="plans-list">
+            <ion-label>
+              <small>тариф</small><br />
+              Standard
+            </ion-label>
+            <ion-button color="medium" size="small" id="open-modal-pricing" class="plan-btn">Premium</ion-button>
+
+            <ion-modal trigger="open-modal-pricing" (willDismiss)="onWillDismiss($event)">
+              <ng-template>
+                <ion-content class="ion-padding">
+    
+                  <ion-icon name="close-outline" class="close-modal" (click)="cancel()"></ion-icon>
+
+                  <div *ngIf="!successPayment">
+                    <div *ngIf="step === 1" class="step-1">
+                      <h1 class="form-title">Тариф</h1>
+                      <div class="gap"></div>
+  
+                      <div class="pricing-toggle-section">
+                        <ion-segment value="month" class="pricing-toggle">
+                          <ion-segment-button value="month">
+                            <ion-label>оплата за месяц</ion-label>
+                          </ion-segment-button>
+                          <ion-segment-button value="year">
+                            <ion-label>оплата за год</ion-label>
+                          </ion-segment-button>
+                        </ion-segment>
+                      </div>
+    
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col>
+                            <ion-card class="pricing-box">
+                              <ion-card-header>
+                                <ion-card-title>
+                                  0 руб/м<br />
+                                  <!-- <small>Ограниченный доступ</small> -->
+                                </ion-card-title>
+                                <ion-card-subtitle>Standard</ion-card-subtitle>
+                              </ion-card-header>
+                            
+                              <ion-card-content>
+                                <div class="divider"></div>
+    
+                                <ion-item class="pricing-item" lines="none">
+                                  <ion-label>
+                                    <ion-icon name="close-outline" color="danger"></ion-icon>Поддержки
+                                  </ion-label>
+                                </ion-item>
+                                <ion-item class="pricing-item" lines="none">
+                                  <ion-label>
+                                    <ion-icon name="checkmark-outline" color="success"></ion-icon>20 маршрутов
+                                  </ion-label>
+                                </ion-item>
+                                <ion-item class="pricing-item" lines="none">
+                                  <ion-label>
+                                    <ion-icon name="checkmark-outline" color="success"></ion-icon>Чат GPT 3.5&nbsp;&nbsp;<ion-icon name="help-circle-outline" color="medium"></ion-icon>
+                                  </ion-label>
+                                </ion-item>
+    
+                                
+                                <div class="divider"></div>
+    
+                                <div class="pricing-box-bottom">
+                                  <div class="text-center"><a href="#" class="link-plan">Инфо о плане&nbsp;<ion-icon name="open-outline"></ion-icon></a></div>
+                                  <ion-button color="primary" fill="outline" (click)="step = 2">Выбрать тариф</ion-button>
+                                </div>
+                              </ion-card-content>
+                            </ion-card>
+                          </ion-col>
+                          <ion-col>
+                            <ion-card class="pricing-box pricing-box-premium" color="primary">
+                              <ion-card-header>
+                                <ion-card-title>
+                                  900 руб/м<br />
+                                  <!-- <small>Ограниченный доступ</small> -->
+                                </ion-card-title>
+                                <ion-card-subtitle>Premium</ion-card-subtitle>
+                              </ion-card-header>
+                            
+                              <ion-card-content>
+                                <div class="divider"></div>
+    
+                                <ion-item class="pricing-item" lines="none">
+                                  <ion-label>
+                                    <ion-icon name="checkmark-outline" color="success"></ion-icon>Поддержки
+                                  </ion-label>
+                                </ion-item>
+                                <ion-item class="pricing-item" lines="none">
+                                  <ion-label>
+                                    <ion-icon name="checkmark-outline" color="success"></ion-icon>∞ маршрутов
+                                  </ion-label>
+                                </ion-item>
+                                <ion-item class="pricing-item" lines="none">
+                                  <ion-label>
+                                    <ion-icon name="checkmark-outline" color="success"></ion-icon>Чат GPT 4.0&nbsp;&nbsp;<ion-icon name="help-circle-outline" color="medium"></ion-icon>
+                                    <!-- <ion-text color="medium" class="item-des">для составления маршрутов</ion-text> -->
+                                  </ion-label>
+                                </ion-item>
+                                
+                                <div class="divider"></div>
+    
+                                <div class="pricing-box-bottom">
+                                  <div class="text-center"><a href="#" class="link-plan">Инфо о плане&nbsp;<ion-icon name="open-outline"></ion-icon></a></div>
+                                  <ion-button color="dark" (click)="step = 2">Выбрать тариф</ion-button>
+                                </div>
+                              </ion-card-content>
+                            </ion-card>
+                          </ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div>
+  
+                    <div *ngIf="step === 2" class="step-2">
+                      <h1 class="form-title">Оформление заказа</h1>
+                      <div class="gap"></div>
+  
+                      <ion-card class="pricing-box pricing-box-premium">
+                        <ion-card-header>
+                          <ion-card-title>Premium</ion-card-title>
+                          <ion-card-subtitle>Тариф</ion-card-subtitle>
+                        </ion-card-header>
+                      
+                        <ion-card-content>
+                          <h2>900 руб/м</h2>
+                          <div class="text-left"><a href="#" class="link-plan-2">Инфо о плане&nbsp;<ion-icon name="open-outline"></ion-icon></a></div>
+                        </ion-card-content>
+                      </ion-card>
+  
+                      <div class="gap"></div>
+  
+                      <div class="pay-options">
+                        <ion-item class="transparent active" lines="none">
+                          <ion-checkbox checked>Попробовать бесплатно в течение 30 дней</ion-checkbox>
+                        </ion-item>
+                        <ion-item class="transparent" lines="none">
+                          <ion-checkbox>Оплатить</ion-checkbox>
+                        </ion-item>
+                      </div>
+  
+                      <ion-row>
+                        <ion-col>
+                          <div class="text-left">
+                            <ion-button (click)="step = 1" [strong]="true" fill="clear" color="medium"><ion-icon name="arrow-back-outline"></ion-icon>&nbsp;Тарифи</ion-button>
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div class="text-right">
+                            <ion-button (click)="step = 3" [strong]="true" fill="clear">Перейти к оформлению&nbsp;<ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </div>
+  
+                    <div *ngIf="step === 3" class="step-2">
+                      <h1 class="form-title">Выберете спосов оплаты</h1>
+                      <div class="gap"></div>
+  
+                      <div class="payment-methods">
+                        <ion-row>
+                          <ion-col>
+                            <div class="payment-method active">
+                              <div class="text-center">
+                                <img height="30" src="./assets/cards.png" />
+                                <ion-text>Банковская карта</ion-text>
+                              </div>
+                            </div>
+                          </ion-col>
+                          <ion-col>
+                            <div class="payment-method">
+                              <div class="text-center">
+                                <img height="30" [src]="!appService.themeToggle ? './assets/sbp-white.png' : './assets/sbp.svg'" />
+                                <ion-text>Оплата СПБ</ion-text>
+                              </div>
+                            </div>
+                          </ion-col>
+                        </ion-row>
+                      </div>
+  
+                      <div class="gap"></div>
+                      <h5>данные карты</h5>
+                      <ion-row>
+                        <ion-col size="12">
+                          <ion-input mode="md" label="Номер карты" labelPlacement="floating" fill="outline" type="text" clearInput size="large"></ion-input>
+                        </ion-col>
+                        <ion-col size="6">
+                          <ion-input mode="md" label="ММ/ГГ" labelPlacement="floating" fill="outline" type="text" size="large"></ion-input>
+                        </ion-col>
+                        <ion-col size="6">
+                          <ion-input mode="md" label="CVV" labelPlacement="floating" fill="outline" type="text" size="large"></ion-input>
+                        </ion-col>
+                      </ion-row>
+                      <div class="gap"></div>
+  
+                      <ion-button expand="block" size="large" (click)="pay()"><ion-spinner *ngIf="paying"name="crescent"></ion-spinner>&nbsp;Оплатить 900₽</ion-button>
+                    </div>
+                  </div>
+                  
+                  <div *ngIf="successPayment" class="loading-modal">
+                    <div class="text-center">
+                      <ion-icon name="checkmark-circle" color="success" class="loading-modal-success-icon"></ion-icon>
+                      <h1>Успешный заказ</h1>
+                      <div><ion-text color="medium">Подождите 3 секунды</ion-text></div>
+                    </div>
+                  </div>
+    
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+          </div>
+          <div class="divider"></div>
+
+          <div id="popover-button" class="sidebar-account">
+            <ion-item lines="none">
+              <ion-avatar slot="start" class="avatar-medium">
+                <img src="./assets/avatar.svg" />
+              </ion-avatar>
+              <ion-label class="user-name">
+                Давид Чиуантито<br />
+                <ion-label><small>{{'email@email.com'}}</small></ion-label>
+              </ion-label>
+            </ion-item>
+            <!-- <div class="side-avatar">
+              <img src="https://tairo.cssninja.io/img/avatars/7.svg" alt="">
+            </div>
+            <div class="side-account-info">
+              <div class="account-name">Давид Чиуантито</div>
+              <div class="account-email">{{'email@email.com'}}</div>
+            </div> -->
+          </div>
+  
+          <ion-popover trigger="popover-button" [dismissOnSelect]="true">
+            <ng-template>
+              <ion-content>
+                <ion-list>
+                  <ion-item [button]="true" [detail]="false"><ion-icon name="person-circle-outline"></ion-icon>&nbsp;&nbsp;Account</ion-item>
+                  <ion-item [button]="true" [detail]="false"><ion-icon name="log-out-outline"></ion-icon>&nbsp;&nbsp;Logout</ion-item>
+                </ion-list>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+        </div>
+        
+      </ion-content>
+    </ion-menu>
+
+    <div class="ion-page" id="main-content">
+      <ion-header collapse="condense">
+        <ion-toolbar class="toolbar-top">
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+
+          <ion-searchbar slot="start" placeholder="Поиск" color="light"></ion-searchbar>
+          
+          <ion-buttons slot="end">
+            <ion-button color="medium" (click)="appService.toggleDarkTheme(appService.themeToggle)"><ion-icon [name]="!appService.themeToggle ? 'sunny-outline' : 'moon-outline'"></ion-icon></ion-button>
+            <ion-button color="medium"><ion-icon name="notifications-outline"></ion-icon><span class="noti-counter"></span></ion-button>
+            <ion-button id="popover-account" color="medium hidden-mobile">
+              <ion-avatar class="avatar-small">
+                <img src="./assets/avatar.svg" />
+              </ion-avatar>
+            </ion-button>
+            <ion-popover trigger="popover-account" [dismissOnSelect]="true">
+              <ng-template>
+                <ion-content>
+                  <ion-list>
+                    <ion-item [button]="true" [detail]="false"><ion-icon name="person-circle-outline"></ion-icon>&nbsp;&nbsp;Account</ion-item>
+                    <ion-item [button]="true" [detail]="false"><ion-icon name="log-out-outline"></ion-icon>&nbsp;&nbsp;Logout</ion-item>
+                  </ion-list>
+                </ion-content>
+              </ng-template>
+            </ion-popover>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-router-outlet></ion-router-outlet>
+    </div>
+  </ion-split-pane>
+</ion-app>
