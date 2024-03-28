@@ -29,7 +29,7 @@
               <small>тариф</small><br />
               Standard
             </ion-label>
-            <ion-button color="medium" size="small" id="open-modal-pricing" class="plan-btn">Изменить</ion-button>
+            <ion-button color="medium" size="small" color="warning" id="open-modal-pricing" class="plan-btn"><ion-icon name="star"></ion-icon>&nbsp;Premium</ion-button>
 
             <ion-modal trigger="open-modal-pricing" (willDismiss)="onWillDismiss($event)">
               <ng-template>
@@ -101,7 +101,7 @@
                                   {{regimen === 'месяц' ? 900 : 9000}} ₽/{{regimen}}<br />
                                   <!-- <small>Ограниченный доступ</small> -->
                                 </ion-card-title>
-                                <ion-card-subtitle>Pro</ion-card-subtitle>
+                                <ion-card-subtitle>Premium</ion-card-subtitle>
                               </ion-card-header>
                             
                               <ion-card-content>
@@ -143,7 +143,7 @@
   
                       <ion-card class="pricing-box pricing-box-premium">
                         <ion-card-header>
-                          <ion-card-title>Pro</ion-card-title>
+                          <ion-card-title>Premium</ion-card-title>
                           <ion-card-subtitle>Тариф</ion-card-subtitle>
                         </ion-card-header>
                       
@@ -243,9 +243,10 @@
                 <img src="./assets/avatar.svg" />
               </ion-avatar>
               <ion-label class="user-name">
-                Давид Чиуантито<br />
+                <b>Давид Чиуантито</b><br />
                 <ion-label><small>{{'email@email.com'}}</small></ion-label>
               </ion-label>
+              <ion-icon name="chevron-down-circle" slot="end"></ion-icon>
             </ion-item>
             <!-- <div class="side-avatar">
               <img src="https://tairo.cssninja.io/img/avatars/7.svg" alt="">
@@ -283,7 +284,7 @@
           <ion-buttons slot="end">
             <ion-button color="medium" (click)="appService.toggleDarkTheme(appService.themeToggle)"><ion-icon [name]="!appService.themeToggle ? 'sunny-outline' : 'moon-outline'"></ion-icon></ion-button>
             <ion-button color="medium"><ion-icon name="notifications-outline"></ion-icon><span class="noti-counter"></span></ion-button>
-            <!-- <ion-button id="popover-account" color="medium hidden-mobile">
+            <ion-button id="popover-account" color="medium hidden-mobile">
               <ion-avatar class="avatar-small">
                 <img src="./assets/avatar.svg" />
               </ion-avatar>
@@ -297,7 +298,7 @@
                   </ion-list>
                 </ion-content>
               </ng-template>
-            </ion-popover> -->
+            </ion-popover>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
