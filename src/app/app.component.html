@@ -239,14 +239,14 @@
 
           <div id="popover-button" class="sidebar-account">
             <ion-item lines="none">
-              <ion-avatar slot="start" class="avatar-medium">
+              <!-- <ion-avatar slot="start" class="avatar-medium">
                 <img src="./assets/avatar.svg" />
-              </ion-avatar>
+              </ion-avatar> -->
               <ion-label class="user-name">
                 <b>Давид Чиуантито</b><br />
                 <ion-label><small>{{'email@email.com'}}</small></ion-label>
               </ion-label>
-              <ion-icon name="chevron-down-circle" slot="end"></ion-icon>
+              <ion-icon name="chevron-up-circle" slot="end"></ion-icon>
             </ion-item>
             <!-- <div class="side-avatar">
               <img src="https://tairo.cssninja.io/img/avatars/7.svg" alt="">
@@ -261,8 +261,8 @@
             <ng-template>
               <ion-content>
                 <ion-list>
-                  <ion-item [button]="true" [detail]="false"><ion-icon name="person-circle-outline"></ion-icon>&nbsp;&nbsp;Account</ion-item>
-                  <ion-item [button]="true" [detail]="false"><ion-icon name="log-out-outline"></ion-icon>&nbsp;&nbsp;Logout</ion-item>
+                  <ion-item [button]="true" [detail]="false"><ion-icon name="person-circle-outline"></ion-icon>&nbsp;&nbsp;Аккаунт</ion-item>
+                  <ion-item [button]="true" [detail]="false"><ion-icon name="log-out-outline"></ion-icon>&nbsp;&nbsp;Выйти</ion-item>
                 </ion-list>
               </ion-content>
             </ng-template>
@@ -293,8 +293,8 @@
               <ng-template>
                 <ion-content>
                   <ion-list>
-                    <ion-item [button]="true" [detail]="false"><ion-icon name="person-circle-outline"></ion-icon>&nbsp;&nbsp;Account</ion-item>
-                    <ion-item [button]="true" [detail]="false"><ion-icon name="log-out-outline"></ion-icon>&nbsp;&nbsp;Logout</ion-item>
+                    <ion-item [button]="true" [detail]="false"><ion-icon name="person-circle-outline"></ion-icon>&nbsp;&nbsp;Аккаунт</ion-item>
+                    <ion-item [button]="true" [detail]="false"><ion-icon name="log-out-outline"></ion-icon>&nbsp;&nbsp;Выйти</ion-item>
                   </ion-list>
                 </ion-content>
               </ng-template>
@@ -386,7 +386,7 @@
                       <ion-button *ngIf="stepTrip === 1" (click)="cancelTrip()" fill="clear" color="danger" shape="round">Отмена</ion-button>
                     </div>
                     <div class="bottom-form-right">
-                      <ion-button *ngIf="stepTrip < 3" (click)="next()" [strong]="true" fill="outline" shape="round">Next</ion-button>
+                      <ion-button *ngIf="stepTrip < 3" (click)="next()" [strong]="true" fill="outline" shape="round">Продолжить</ion-button>
                       <ion-button *ngIf="stepTrip === 3" (click)="confirmTrip()" [strong]="true" fill="outline" shape="round">Создать</ion-button>
                     </div>
                   </div>
