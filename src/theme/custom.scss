@@ -17,6 +17,10 @@ ion-split-pane {
     outline: none;
 }
 
+.page-title-actions {
+    display: flex;
+}
+
 .logo {
     font-size: 2rem;
     font-weight: bold;
@@ -40,6 +44,10 @@ ion-searchbar {
 
 ion-toolbar {
     --padding-end: 50px;
+}
+
+ion-toolbar.mobile-toolbar {
+    --padding-end: 10px;
 }
 
 ion-avatar.avatar-small {

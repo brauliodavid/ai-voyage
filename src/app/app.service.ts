@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 
 
 @Injectable({
@@ -6,6 +7,8 @@ import { Injectable } from "@angular/core";
   })
   export class AppService {
     themeToggle = false;
+    openTripMenu = new BehaviorSubject<boolean>(false)
+    openTripModal = new BehaviorSubject<boolean>(false)
 
     // Add or remove the "dark" class on the document body
     toggleDarkTheme(shouldAdd) {

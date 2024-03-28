@@ -295,4 +295,38 @@ ion-item.pricing-item ion-icon {
   justify-content: center;
 }
 
+.form-section-title {
+  margin-bottom: 1rem;
+}
+
+.input-date {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.counter__section {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-visibility {
+  width: 200px;
+}
+
+ion-menu.trip-menu {
+  --ion-backdrop-color: transparent;
+  --width: 400px;
+}
+
+ion-menu::part(container) {
+  // border-left: 1px solid var(--ion-color-light);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+}
+
+ion-menu.trip-menu ion-list {
+  padding: 0;
+}
 

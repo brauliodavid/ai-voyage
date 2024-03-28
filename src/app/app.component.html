@@ -29,7 +29,7 @@
               <small>тариф</small><br />
               Standard
             </ion-label>
-            <ion-button color="medium" size="small" id="open-modal-pricing" class="plan-btn">Premium</ion-button>
+            <ion-button color="medium" size="small" id="open-modal-pricing" class="plan-btn">Изменить</ion-button>
 
             <ion-modal trigger="open-modal-pricing" (willDismiss)="onWillDismiss($event)">
               <ng-template>
@@ -43,11 +43,11 @@
                       <div class="gap"></div>
   
                       <div class="pricing-toggle-section">
-                        <ion-segment value="month" class="pricing-toggle">
-                          <ion-segment-button value="month">
+                        <ion-segment [(ngModel)]="regimen" class="pricing-toggle">
+                          <ion-segment-button value="месяц">
                             <ion-label>оплата за месяц</ion-label>
                           </ion-segment-button>
-                          <ion-segment-button value="year">
+                          <ion-segment-button value="год">
                             <ion-label>оплата за год</ion-label>
                           </ion-segment-button>
                         </ion-segment>
@@ -59,7 +59,7 @@
                             <ion-card class="pricing-box">
                               <ion-card-header>
                                 <ion-card-title>
-                                  0 руб/м<br />
+                                  0 ₽/{{regimen}}<br />
                                   <!-- <small>Ограниченный доступ</small> -->
                                 </ion-card-title>
                                 <ion-card-subtitle>Standard</ion-card-subtitle>
@@ -75,7 +75,7 @@
                                 </ion-item>
                                 <ion-item class="pricing-item" lines="none">
                                   <ion-label>
-                                    <ion-icon name="checkmark-outline" color="success"></ion-icon>20 маршрутов
+                                    <ion-icon name="checkmark-outline" color="success"></ion-icon>5 маршрутов
                                   </ion-label>
                                 </ion-item>
                                 <ion-item class="pricing-item" lines="none">
@@ -88,8 +88,8 @@
                                 <div class="divider"></div>
     
                                 <div class="pricing-box-bottom">
-                                  <div class="text-center"><a href="#" class="link-plan">Инфо о плане&nbsp;<ion-icon name="open-outline"></ion-icon></a></div>
-                                  <ion-button color="primary" fill="outline" (click)="step = 2">Выбрать тариф</ion-button>
+                                  <div class="text-center"><a href="#" class="link-plan">полная информация&nbsp;<ion-icon name="open-outline"></ion-icon></a></div>
+                                  <ion-button color="primary" fill="outline" (click)="step = 2" disabled>Выбрано</ion-button>
                                 </div>
                               </ion-card-content>
                             </ion-card>
@@ -98,10 +98,10 @@
                             <ion-card class="pricing-box pricing-box-premium" color="primary">
                               <ion-card-header>
                                 <ion-card-title>
-                                  900 руб/м<br />
+                                  {{regimen === 'месяц' ? 900 : 9000}} ₽/{{regimen}}<br />
                                   <!-- <small>Ограниченный доступ</small> -->
                                 </ion-card-title>
-                                <ion-card-subtitle>Premium</ion-card-subtitle>
+                                <ion-card-subtitle>Pro</ion-card-subtitle>
                               </ion-card-header>
                             
                               <ion-card-content>
@@ -119,7 +119,7 @@
                                 </ion-item>
                                 <ion-item class="pricing-item" lines="none">
                                   <ion-label>
-                                    <ion-icon name="checkmark-outline" color="success"></ion-icon>Чат GPT 4.0&nbsp;&nbsp;<ion-icon name="help-circle-outline" color="medium"></ion-icon>
+                                    <ion-icon name="checkmark-outline" color="success"></ion-icon>Чат GPT 4.0&nbsp;&nbsp;<ion-icon name="help-circle-outline" color="light"></ion-icon>
                                     <!-- <ion-text color="medium" class="item-des">для составления маршрутов</ion-text> -->
                                   </ion-label>
                                 </ion-item>
@@ -127,7 +127,7 @@
                                 <div class="divider"></div>
     
                                 <div class="pricing-box-bottom">
-                                  <div class="text-center"><a href="#" class="link-plan">Инфо о плане&nbsp;<ion-icon name="open-outline"></ion-icon></a></div>
+                                  <div class="text-center"><a href="#" class="link-plan">полная информация&nbsp;<ion-icon name="open-outline"></ion-icon></a></div>
                                   <ion-button color="dark" (click)="step = 2">Выбрать тариф</ion-button>
                                 </div>
                               </ion-card-content>
@@ -143,26 +143,26 @@
   
                       <ion-card class="pricing-box pricing-box-premium">
                         <ion-card-header>
-                          <ion-card-title>Premium</ion-card-title>
+                          <ion-card-title>Pro</ion-card-title>
                           <ion-card-subtitle>Тариф</ion-card-subtitle>
                         </ion-card-header>
                       
                         <ion-card-content>
-                          <h2>900 руб/м</h2>
-                          <div class="text-left"><a href="#" class="link-plan-2">Инфо о плане&nbsp;<ion-icon name="open-outline"></ion-icon></a></div>
+                          <h2>{{regimen === 'месяц' ? 900 : 9000}} ₽/{{regimen}}</h2>
+                          <div class="text-left"><a href="#" class="link-plan-2">полная информация&nbsp;<ion-icon name="open-outline"></ion-icon></a></div>
                         </ion-card-content>
                       </ion-card>
   
                       <div class="gap"></div>
   
-                      <div class="pay-options">
+                      <!-- <div class="pay-options">
                         <ion-item class="transparent active" lines="none">
                           <ion-checkbox checked>Попробовать бесплатно в течение 30 дней</ion-checkbox>
                         </ion-item>
                         <ion-item class="transparent" lines="none">
                           <ion-checkbox>Оплатить</ion-checkbox>
                         </ion-item>
-                      </div>
+                      </div> -->
   
                       <ion-row>
                         <ion-col>
@@ -172,7 +172,8 @@
                         </ion-col>
                         <ion-col>
                           <div class="text-right">
-                            <ion-button (click)="step = 3" [strong]="true" fill="clear">Перейти к оформлению&nbsp;<ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+                            <!-- <ion-button (click)="step = 3" [strong]="true" fill="clear">Перейти к оформлению&nbsp;<ion-icon name="arrow-forward-outline"></ion-icon></ion-button> -->
+                            <ion-button (click)="step = 3" [strong]="true" fill="clear">Оплатить&nbsp;<ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
                           </div>
                         </ion-col>
                       </ion-row>
@@ -273,7 +274,7 @@
     <div class="ion-page" id="main-content">
       <ion-header collapse="condense">
         <ion-toolbar class="toolbar-top">
-          <ion-buttons slot="start">
+          <ion-buttons slot="start" class="hidden-desktop">
             <ion-menu-button></ion-menu-button>
           </ion-buttons>
 
@@ -282,7 +283,7 @@
           <ion-buttons slot="end">
             <ion-button color="medium" (click)="appService.toggleDarkTheme(appService.themeToggle)"><ion-icon [name]="!appService.themeToggle ? 'sunny-outline' : 'moon-outline'"></ion-icon></ion-button>
             <ion-button color="medium"><ion-icon name="notifications-outline"></ion-icon><span class="noti-counter"></span></ion-button>
-            <ion-button id="popover-account" color="medium hidden-mobile">
+            <!-- <ion-button id="popover-account" color="medium hidden-mobile">
               <ion-avatar class="avatar-small">
                 <img src="./assets/avatar.svg" />
               </ion-avatar>
@@ -296,12 +297,170 @@
                   </ion-list>
                 </ion-content>
               </ng-template>
-            </ion-popover>
+            </ion-popover> -->
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
 
+      <ion-modal #tripModal class="fancy-modal" (willDismiss)="onWillDismissTrip($event)">
+        <ng-template>
+            <div *ngIf="!loadingTrip" class="fancy-modal-container">
+              <div class="col-img hidden-mobile">
+                <img src="./assets/fancy-trip.avif" class="img-modal">
+              </div>
+              <div class="modal-form">
+                <ion-content class="ion-padding">
+    
+                  <ion-icon name="close-outline" class="close-modal" (click)="cancelTrip()"></ion-icon>
+                  <h1 class="form-title">Новый маршрут</h1>
+                  <div class="gap"></div>
+          
+                  <div *ngIf="stepTrip === 1" class="step-1">
+                    <h4 class="form-section-title">Куда вы хотите поехать?</h4>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col size="8">
+                          <ion-input mode="md" label="Город" labelPlacement="floating" fill="outline" type="search" placeholder="" clearInput></ion-input>
+                        </ion-col>
+                        <ion-col>
+                          <!-- <ion-label><small>Дата</small></ion-label> -->
+                          <div class="input-date">
+                            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+                            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+                            <ion-modal [keepContentsMounted]="true">
+                              <ng-template>
+                                <ion-datetime id="datetime" presentation="date"></ion-datetime>
+                              </ng-template>
+                            </ion-modal>
+                            <!-- <ion-icon name="calendar-outline"></ion-icon> -->
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                    <ion-button fill="outline" size="small"><ion-icon name="add-outline"></ion-icon>&nbsp;Город</ion-button>
+                    <div class="gap"></div>
+                  </div>
+                  
+                  <div *ngIf="stepTrip === 2" class="step-2">
+                    <h4 class="form-section-title">Сколько человек путешествует?</h4>
+                    <div class="counter__section">
+                      <ion-button (click)="decrement()">-</ion-button>
+                      <p>{{count }}</p>
+                      <ion-button (click)="increment()">+</ion-button>
+                    </div>
+                    <div class="gap"></div>
+                  </div>
+          
+                  <div *ngIf="stepTrip === 3" class="step-3">
+                    <h4 class="form-section-title">Какие виды деятельности вы ищете?</h4>
+                    <ion-chip color="primary">Семья</ion-chip>
+                    <ion-chip color="primary">Друзья</ion-chip>
+                    <ion-chip color="medium">Работа</ion-chip>
+                    <ion-chip color="medium">Путешествие</ion-chip>
+                    <ion-chip color="medium">Арт и культура</ion-chip>
+                    <ion-chip color="medium">Музеи</ion-chip>
+                    <ion-chip color="medium">Покупка</ion-chip>
+                    <ion-chip color="medium">Приключение</ion-chip>
+                    <div class="gap"></div>
+                  </div>
+          
+                  <!-- <div *ngIf="stepTrip === 4" class="step-4">
+                    <h4 class="form-section-title">Видимость Ссылка</h4>
+                    <ion-note>Все люди смогут увидеть маршрут по ссылке</ion-note>
+                    <div class="gap"></div>
+                    <ion-segment value="default" class="input-visibility">
+                      <ion-segment-button value="default">
+                        <ion-label>Общественный</ion-label>
+                      </ion-segment-button>
+                      <ion-segment-button value="segment">
+                        <ion-label>Личный</ion-label>
+                      </ion-segment-button>
+                    </ion-segment>
+                    <div class="gap"></div>
+                  </div> -->
+    
+                  <div class="bottom-form">
+                    <div class="bottom-form-left">
+                      <ion-button *ngIf="stepTrip > 1" (click)="prev()" fill="clear" shape="round"><ion-icon name="arrow-back-outline"></ion-icon>&nbsp;Назад</ion-button>
+                      <ion-button *ngIf="stepTrip === 1" (click)="cancelTrip()" fill="clear" color="danger" shape="round">Отмена</ion-button>
+                    </div>
+                    <div class="bottom-form-right">
+                      <ion-button *ngIf="stepTrip < 3" (click)="next()" [strong]="true" fill="outline" shape="round">Next</ion-button>
+                      <ion-button *ngIf="stepTrip === 3" (click)="confirmTrip()" [strong]="true" fill="outline" shape="round">Создать</ion-button>
+                    </div>
+                  </div>
+    
+                </ion-content>
+              </div>
+            </div>
+            <div *ngIf="loadingTrip" class="loading-modal">
+              <div class="text-center">
+                <h1>Создание маршрута</h1>
+                <div><ion-text color="medium">Подождите 5 секунды</ion-text></div>
+                <ion-spinner name="dots"></ion-spinner>
+              </div>
+            </div>
+        </ng-template>
+      </ion-modal>
+
       <ion-router-outlet></ion-router-outlet>
+
+      <ion-fab slot="fixed" vertical="bottom" horizontal="end" class="hidden-desktop">
+        <ion-fab-button (click)="tripModal.present()">
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
     </div>
   </ion-split-pane>
+
+  <ion-menu #tripMenu side="end" (ionDidClose)="appService.openTripMenu.next(false)" class="trip-menu">
+    <ion-content>
+      <div class="ion-padding">
+        <ion-icon name="close-outline" class="close-modal" (click)="tripMenu.close()"></ion-icon>
+        <div class="gap"></div>
+        <h1>Трек к базовому лагерю Эвереста</h1>
+      </div>
+      <ion-list [inset]="true">
+        <ion-item color="light">
+          <ion-label>
+            Дата создания<br />
+            <ion-text color="dark"><b>4 Марта, 2024</b></ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="light" lines="none">
+          <ion-label>
+            Ссылка<br />
+            <ion-text color="medium"><small>Ссылка, по которой любой пользователь может смотреть маршрут в формате лонгрид.</small></ion-text><br /><br />
+            <ion-text class="ion-text-wrap"><a href="https://aivoyage.com/trip-1" target="_blank">https://aivoyage.com/trip-1</a></ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="light">
+          <ion-segment value="default">
+            <ion-segment-button value="default">
+              <ion-label>Опубликовано</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="segment">
+              <ion-label>Не опубликовано</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-item>
+      </ion-list>
+
+      <ion-list [inset]="true">
+        <ion-item color="light">
+          <ion-label>
+            Таги<br />
+            <ion-chip>Семья</ion-chip><ion-chip>Друзья</ion-chip>
+          </ion-label>
+        </ion-item>
+        <ion-item color="light">
+          <ion-label>
+            Пассажиры<br />
+            <ion-text color="medium">4</ion-text>
+          </ion-label>
+          <ion-button size="small" fill="outline" color="medium">изменить</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
 </ion-app>
