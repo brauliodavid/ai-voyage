@@ -31,6 +31,17 @@ export class AppComponent implements OnInit {
 
   regimen = 'месяц'
 
+  chips = [
+    {label: 'Семья', active: false},
+    {label: 'Друзья', active: false},
+    {label: 'Работа', active: false},
+    {label: 'Путешествие', active: false},
+    {label: 'Арт и культура', active: false},
+    {label: 'Музеи', active: false},
+    {label: 'Покупка', active: false},
+    {label: 'Приключение', active: false},
+  ]
+
   @ViewChild(IonModal) modal: IonModal
   @ViewChild('tripModal') tripModal: IonModal
   @ViewChild('tripMenu') tripMenu: IonMenu

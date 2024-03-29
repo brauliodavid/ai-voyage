@@ -354,14 +354,7 @@
           
                   <div *ngIf="stepTrip === 3" class="step-3">
                     <h4 class="form-section-title">Какие виды деятельности вы ищете?</h4>
-                    <ion-chip color="primary">Семья</ion-chip>
-                    <ion-chip color="primary">Друзья</ion-chip>
-                    <ion-chip color="medium">Работа</ion-chip>
-                    <ion-chip color="medium">Путешествие</ion-chip>
-                    <ion-chip color="medium">Арт и культура</ion-chip>
-                    <ion-chip color="medium">Музеи</ion-chip>
-                    <ion-chip color="medium">Покупка</ion-chip>
-                    <ion-chip color="medium">Приключение</ion-chip>
+                    <ion-chip *ngFor="let chip of chips" [color]="chip.active ? 'primary' : 'medium'" (click)="chip.active = !chip.active">{{chip.label}}</ion-chip>
                     <div class="gap"></div>
                   </div>
           
@@ -451,7 +444,7 @@
         <ion-item color="light">
           <ion-label>
             Таги<br />
-            <ion-chip>Семья</ion-chip><ion-chip>Друзья</ion-chip>
+            <ion-chip>Путешествие</ion-chip><ion-chip>Приключение</ion-chip>
           </ion-label>
         </ion-item>
         <ion-item color="light">
